@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+$color-font: #ffffff;
+$color-font-smoke: #a4aab9;
+$color-background-header:#0b0c10;
+$color-header-logo:#303030;
+$color-background: #2a2d36;
+$color-background-footer:#15161a;
+$color-footer-logo:#2c2f36;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Open Sans', sans-serif;
+}
+
+body{
+    background-color: $color-background;
+}
+
