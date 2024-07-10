@@ -2,19 +2,20 @@
 
 $color-font: #ffffff;
 $color-font-smoke: #a4aab9;
-$color-background-header:#0b0c10;
-$color-header-logo:#303030;
+$color-background-header: #0b0c10;
+$color-header-logo: #303030;
 $color-background: #2a2d36;
-$color-background-footer:#15161a;
-$color-footer-logo:#2c2f36;
+$color-background-footer: #15161a;
+$color-footer-logo: #2c2f36;
+$color-hover: #e88301;
 
 * {
     margin: 0;
     padding: 0;
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: $color-font;
 }
 
-body{
+body {
     background-color: $color-background;
 }
-

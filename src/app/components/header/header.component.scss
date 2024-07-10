@@ -1,0 +1,61 @@
+@use'../../../styles.scss' as *;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-background-header;
+    height: 8.75rem;
+    width: 100vw;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 3.75rem;
+        height: 6.25rem;
+        width: 6.25rem;
+        background-color: $color-header-logo;
+        border-radius: 9999px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $color-hover;
+        }
+
+        .logo {}
+    }
+
+    .title {
+        margin-right: 3.75rem;
+        text-align: right;
+        font-size: 1.75rem;
+        cursor: default;
+
+        h1 {
+            font-weight: normal;
+            font-size: 1.75rem;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        p {
+            display: block;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            font-weight: lighter;
+            transition: opacity 1s ease, height 1s ease;
+        }
+
+        &:hover {
+            p {
+                opacity: 1;
+                height: auto;
+            }
+        }
+    }
+
+}
