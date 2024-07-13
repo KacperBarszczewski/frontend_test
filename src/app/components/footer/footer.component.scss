@@ -1,0 +1,104 @@
+@use'../../../styles.scss' as *;
+
+
+footer {
+    background-color: $color-background-footer;
+    width: 100%;
+    height: 8.75rem;
+    margin-top: 13.375rem;
+
+    .container {
+        height: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__box {
+            flex: 1;
+
+            div {
+                height: 6.125rem;
+                width: 6.125rem;
+                border: 1px solid $color-footer-logo;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                p {
+                    font-size: 1.5rem;
+                    margin-left: 0.625rem;
+                    color: $color-footer-logo;
+                }
+
+                &:hover {
+                    border-color: $color-hover;
+                    cursor: pointer;
+
+                    p {
+                        color: $color-font-smoke;
+                    }
+                }
+            }
+        }
+
+        &__logo {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+
+            div {
+                margin-left: 0.375rem;
+                margin-right: 0.375rem;
+                border-bottom: 1px solid $color-footer-logo;
+                width: 3.4rem;
+            }
+
+            p {
+                color: $color-footer-logo;
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+        }
+
+        &__button {
+            flex: 1;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            button {
+                background-color: transparent;
+                color: $color-font-smoke;
+                width: 16.75rem;
+                height: 3rem;
+                border: 1px solid $color-footer-logo;
+                font-size: 1rem;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                span {
+                    color: $color-font-smoke;
+                    margin-left: 0.5rem;
+                    font-size: 1.6rem;
+                    transition-duration: 300ms;
+                }
+
+                &:hover {
+                    color: $color-font;
+                    border-color: $color-font;
+
+                    span {
+                        color: $color-font;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}
