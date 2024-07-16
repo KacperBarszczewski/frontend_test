@@ -7,6 +7,9 @@ header {
     background-color: $color-background-header;
     height: 8.75rem;
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 
     a {
         display: flex;

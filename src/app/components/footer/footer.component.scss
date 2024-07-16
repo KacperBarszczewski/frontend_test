@@ -19,13 +19,13 @@ footer {
         &__box {
             flex: 1;
 
-            div {
+            &__flex {
                 height: 6.125rem;
                 width: 6.125rem;
-                border: 1px solid $color-footer-logo;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                position: relative;
 
                 p {
                     font-size: 1.5rem;
@@ -33,14 +33,28 @@ footer {
                     color: $color-footer-logo;
                 }
 
+                div {
+                    border: 1px solid $color-footer-logo;
+                    height: 6.125rem;
+                    width: 6.125rem;
+                    z-index: 100;
+                    position: absolute;
+                }
+
                 &:hover {
-                    border-color: $color-hover;
                     cursor: pointer;
+
+                    div{
+                        border-color: $color-hover;
+                        transition-duration: 1s;
+                        transform: rotate(360deg);
+                    }
 
                     p {
                         color: $color-font-smoke;
                     }
                 }
+
             }
         }
 
