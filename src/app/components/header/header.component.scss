@@ -75,6 +75,7 @@ header {
             p {
                 opacity: 1;
                 height: 100%;
+                height: calc-size(100%);
             }
         }
     }
