@@ -18,30 +18,36 @@
             <div></div>
         </div>
         <div class="container__button">
-            <button (click)="toggleActiveClass()">
-                <span #buttonText>
+            <button class="container__button__show">
+                <span>
                     POKAŻ
+                </span>
+                <span class="material-symbols-outlined">
+                    keyboard_arrow_down
+                </span>
+            </button>
+            <button class="container__button__hidden">
+                <span>
+                    UKRYJ
                 </span>
                 <span class="material-symbols-outlined">
                     keyboard_arrow_up
                 </span>
             </button>
+            <div class="container__button__list">
+                <button class="container__button__list__button">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_right
+                    </span>
+                    ZRESETUJ USTAWIENIA
+                </button>
+                <button class="container__button__list__button">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_right
+                    </span>
+                    POKAŻ DANE OSOBOWE
+                </button>
+            </div>
         </div>
     </div>
-
-    <div class="list">
-        <button>
-            <span class="material-symbols-outlined">
-                keyboard_arrow_right
-            </span>
-            ZRESETUJ USTAWIENIA
-        </button>
-        <button>
-            <span class="material-symbols-outlined">
-                keyboard_arrow_right
-            </span>
-            POKAŻ DANE OSOBOWE
-        </button>
-    </div>
-
 </footer>

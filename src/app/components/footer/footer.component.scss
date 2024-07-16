@@ -44,7 +44,7 @@ footer {
                 &:hover {
                     cursor: pointer;
 
-                    div{
+                    div {
                         border-color: $color-hover;
                         transition-duration: 1s;
                         transform: rotate(360deg);
@@ -85,7 +85,11 @@ footer {
             justify-content: end;
             align-items: center;
 
-            button {
+            span {
+                color: $color-font-smoke;
+            }
+
+            &__show {
                 background-color: transparent;
                 color: $color-font-smoke;
                 width: 16.75rem;
@@ -97,85 +101,119 @@ footer {
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
+                position: absolute;
 
                 .material-symbols-outlined {
                     color: $color-font-smoke;
                     margin-left: 0.5rem;
                     font-size: 1.6rem;
-                    transition-duration: 300ms;
                 }
 
                 &:hover {
                     color: $color-font;
                     border-color: $color-font;
 
+                    span {
+                        color: $color-font;
+                    }
+                }
+
+                &:focus {
+                    background-color: $color-hover;
+                    z-index: -1;
+                }
+
+                &:focus~.container__button__list {
+                    transform: scaleY(1);
+                    height: auto;
+                }
+
+                &:focus~.container__button__hidden {
+                    z-index: 100;
+
                     .material-symbols-outlined {
+                        transition-duration: 300ms;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            &__hidden {
+                background-color: transparent;
+                color: $color-font-smoke;
+                width: 16.75rem;
+                height: 3rem;
+                border: 1px solid $color-footer-logo;
+                font-size: 1rem;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: -1;
+
+                .material-symbols-outlined {
+                    color: $color-font-smoke;
+                    margin-left: 0.5rem;
+                    font-size: 1.6rem;
+                }
+
+                &:hover {
+                    color: $color-font;
+                    border-color: $color-font;
+
+                    span {
                         color: $color-font;
                     }
                 }
             }
-        }
-    }
 
-    .list {
-        background-color: $color-font;
-        width: 16.75rem;
-        position: absolute;
-        bottom: 100%;
-        right: 0;
-        margin-right: 3.75rem;
-        transition: transform 0.3s ease;
-        transform-origin: bottom;
-        transform: scaleY(0);
-        overflow: hidden;
-        box-shadow: 0 -5px 10px 10px rgba(0, 0, 0, 0.3);
+            &__list {
+                background-color: $color-font;
+                width: 16.75rem;
+                position: absolute;
+                bottom: 100%;
+                right: 0;
+                margin-right: 3.75rem;
+                transition: transform 0.3s ease;
+                transform-origin: bottom;
+                transform: scaleY(0);
+                overflow: hidden;
+                box-shadow: 0 -5px 10px 10px rgba(0, 0, 0, 0.3);
 
-        button {
-            background-color: transparent;
-            color: $color-background-footer;
-            border: none;
-            font-weight: 650;
-            font-size: 0.95rem;
-            margin-left: 1rem;
-            display: flex;
-            align-items: center;
+                &__button {
+                    background-color: transparent;
+                    color: $color-background-footer;
+                    border: none;
+                    font-weight: 650;
+                    font-size: 0.95rem;
+                    margin-left: 1rem;
+                    display: flex;
+                    align-items: center;
 
-            &:first-child {
-                margin-top: 1rem;
-            }
+                    &:first-child {
+                        margin-top: 1rem;
+                    }
 
-            &:last-child {
-                margin-bottom: 1rem;
-            }
+                    &:last-child {
+                        margin-bottom: 1rem;
+                    }
 
-            span {
-                color: $color-background-footer;
-                font-size: 1.8rem;
-            }
+                    span {
+                        color: $color-background-footer;
+                        font-size: 1.8rem;
+                    }
 
-            &:hover {
-                color: $color-hover;
-                cursor: pointer;
+                    &:hover {
+                        color: $color-hover;
+                        cursor: pointer;
 
-                span {
-                    color: $color-hover;
+                        span {
+                            color: $color-hover;
+                        }
+                    }
                 }
             }
         }
-    }
-}
-
-footer.active {
-    .container__button {
-        button {
-            .material-symbols-outlined {
-                transform: rotate(180deg);
-            }
-        }
-    }
-
-    .list {
-        transform: scaleY(1);
-        height: auto;
     }
 }

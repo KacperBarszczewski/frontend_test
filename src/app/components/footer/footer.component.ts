@@ -8,12 +8,4 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  @ViewChild('footer') footer!: ElementRef;
-  @ViewChild('buttonText') buttonText!: ElementRef;
-
-  toggleActiveClass() {
-    this.footer.nativeElement.classList.toggle('active');
-    this.buttonText.nativeElement.textContent = this.footer.nativeElement.classList.contains('active') ? 'UKRYJ' : 'POKAŻ';
-  }
-
 }
