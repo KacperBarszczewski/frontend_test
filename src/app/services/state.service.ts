@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, of, BehaviorSubject } from 'rxjs';
-
-
+import { BehaviorSubject, Observable } from 'rxjs';
+import { LocalStorageService } from './localStorage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,24 +9,14 @@ export class StateService {
 
   private selectedOptionSource = new BehaviorSubject<string | null>(null);
   selectedOption$ = this.selectedOptionSource.asObservable();
-  private contentSource = new BehaviorSubject<string[]>([]);
-  content$ = this.contentSource.asObservable();
 
-  private data: string[] = [];
-  private dataUrl = 'content.json';
+  content: string[] = [];
+  content$: Observable<string[]> = new BehaviorSubject<string[]>(this.content);
 
-  constructor(private http: HttpClient) {
-    this.loadData();
-  }
-
-  loadData() {
-    this.http.get<any[]>(this.dataUrl).pipe(
-      catchError(error => {
-        console.error('Błąd podczas ładowania danych', error);
-        return of([]);
-      })
-    ).subscribe(data=> {
-      this.data = data.map(item => item.text);
+  constructor(private localStorageService: LocalStorageService) {
+    this.content$ = this.localStorageService.content$;
+    this.localStorageService.content$.subscribe(updatedContent => {
+      this.content = updatedContent;
     });
   }
 
@@ -37,16 +25,16 @@ export class StateService {
   }
 
   updateContent(action: 'replace' | 'append') {
-    const currentContent = this.contentSource.getValue();
+    const currentContent = this.content;
     const newContent = this.getContent(this.selectedOptionSource.getValue() ?? '');
 
     if (newContent === null)
       return;
 
     if (action === 'replace') {
-      this.contentSource.next([newContent]);
+      this.localStorageService.editContent(newContent);
     } else if (action === 'append' && !currentContent.includes(newContent)) {
-      this.contentSource.next([...currentContent, newContent].sort((a, b) => a.localeCompare(b)));
+      this.localStorageService.addContent(newContent);
     } else {
       alert('Treść już istnieje.');
     }
@@ -65,16 +53,16 @@ export class StateService {
     }
   }
 
-  private getSelectContent(index: number): string | null{
-    if (this.data.length === index) {
+  private getSelectContent(index: number): string | null {
+    if (this.localStorageService.dataJSON.length < index) {
       alert('Za mało danych');
       return null;
     }
-    return this.data[index];
+    return this.localStorageService.dataJSON[index];
   }
 
   private getRandomContent(): string | null {
-    let currentData = this.data.filter((item) => !this.contentSource.getValue().includes(item));
+    let currentData = this.localStorageService.dataJSON.filter((item) => !this.content.includes(item));
     if (currentData.length === 0) {
       alert('Brak nowych treści');
       return null;
