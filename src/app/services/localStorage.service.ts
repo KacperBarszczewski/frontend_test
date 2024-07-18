@@ -6,6 +6,9 @@ import { BehaviorSubject, catchError, of } from 'rxjs';
   providedIn: 'root'
 })
 export class LocalStorageService {
+  private nameSource = new BehaviorSubject<string>('');
+  name$ = this.nameSource.asObservable();
+
   private contentSource = new BehaviorSubject<string[]>([]);
   content$ = this.contentSource.asObservable();
   dataJSON: string[] = [];
@@ -13,10 +16,13 @@ export class LocalStorageService {
   private dataUrl = 'content.json';
   private contentKey = 'content';
   private dataJSONKey = 'JSON';
+  private nameKey = 'name';
 
   constructor(private http: HttpClient) {
     const content = this.loadLocalStorageData(this.contentKey);
     const dataJSON = this.loadLocalStorageData(this.dataJSONKey);
+
+    this.nameSource.next(this.loadLocalStorageData(this.nameKey));
 
     if (!content || !dataJSON) {
       this.loadData();
@@ -50,6 +56,12 @@ export class LocalStorageService {
     this.contentSource.next(nextContent);
 
     this.saveLocalStorageData(this.contentKey, nextContent);
+  }
+
+  //name
+  changeName(newName: string) {
+    this.nameSource.next(newName);
+    this.saveLocalStorageData(this.nameKey, newName);
   }
 
   //LocalStorage

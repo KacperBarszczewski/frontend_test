@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from '../../services/localStorage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  name = '';
+
+  constructor(private localStorageService: LocalStorageService) {
+    this.localStorageService.name$.subscribe(updatedName => {
+      this.name = updatedName;
+    });
+  }
 
 }
