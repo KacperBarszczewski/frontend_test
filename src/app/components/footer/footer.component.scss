@@ -10,11 +10,16 @@ footer {
 
     .container {
         height: 100%;
-        padding-left: 3.75rem;
-        padding-right: 3.75rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media (min-width: $breakpoint-sm) {
+            padding-left: 3.75rem;
+            padding-right: 3.75rem;
+        }
 
         &__box {
             flex: 1;
@@ -27,18 +32,33 @@ footer {
                 justify-content: center;
                 position: relative;
 
+                @media (min-width: $breakpoint-sm) {
+                    height: 6.125rem;
+                    width: 6.125rem;
+                }
+
                 p {
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                     margin-left: 0.625rem;
                     color: $color-footer-logo;
+
+                    @media (min-width: $breakpoint-sm) {
+                        font-size: 1.5rem;
+                        
+                    }
                 }
 
                 div {
                     border: 1px solid $color-footer-logo;
-                    height: 6.125rem;
-                    width: 6.125rem;
+                    height: 4.25rem;
+                    width: 4.25rem;
                     z-index: 100;
                     position: absolute;
+
+                    @media (min-width: $breakpoint-sm) {
+                        height: 6.125rem;
+                        width: 6.125rem;
+                    }
                 }
 
                 &:hover {
@@ -59,11 +79,15 @@ footer {
         }
 
         &__logo {
-            display: flex;
+            display: none;
             flex: 1;
             align-items: center;
             justify-content: center;
             cursor: default;
+
+            @media (min-width: $breakpoint-lg) {
+                display: flex;  
+            }
 
             div {
                 margin-left: 0.375rem;
@@ -92,20 +116,30 @@ footer {
             %button-shared-styles {
                 background-color: transparent;
                 color: $color-font-smoke;
-                width: 16.75rem;
-                height: 3rem;
+                width: 10rem;
+                height: 2.25rem;
                 border: 1px solid $color-footer-logo;
-                font-size: 1rem;
+                font-size: 0.7rem;
                 font-weight: 700;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
 
+                @media (min-width: $breakpoint-sm) {
+                    width: 16.75rem;
+                    height: 3rem;
+                    font-size: 1rem;
+                }
+
                 .material-symbols-outlined {
                     color: $color-font-smoke;
                     margin: 0.5rem;
-                    font-size: 1.6rem;
+                    font-size: 1rem;
+
+                    @media (min-width: $breakpoint-sm) {
+                        font-size: 1.6rem;
+                    }
                 }
 
                 &:hover {
@@ -153,12 +187,16 @@ footer {
                 position: absolute;
                 bottom: 100%;
                 right: 0;
-                margin-right: 3.75rem;
+                margin-right: 0.25rem;
                 transition: transform 0.3s ease;
                 transform-origin: bottom;
                 transform: scaleY(0);
                 overflow: hidden;
                 box-shadow: 0 -5px 10px 10px rgba(0, 0, 0, 0.3);
+
+                @media (min-width: $breakpoint-sm) {
+                    margin-right: 3.75rem;
+                }
 
                 &__button {
                     background-color: transparent;
