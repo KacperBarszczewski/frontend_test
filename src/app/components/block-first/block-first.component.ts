@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-block-first',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './block-first.component.scss'
 })
 export class BlockFirstComponent {
+  selectedOption: string | null = null;
+
+  constructor(private stateService: StateService) {}
+
+  setOption(option: string) {
+    this.selectedOption = option;
+    this.stateService.setSelectedOption(option);
+  }
 
 }

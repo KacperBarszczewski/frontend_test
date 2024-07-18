@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-block-second',
@@ -8,5 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './block-second.component.scss'
 })
 export class BlockSecondComponent {
+
+  constructor(private stateService: StateService) {
+  }
+
+  replaceContent() {
+    this.stateService.updateContent('replace');
+  }
+
+  appendContent() {
+    this.stateService.updateContent('append');
+  }
 
 }

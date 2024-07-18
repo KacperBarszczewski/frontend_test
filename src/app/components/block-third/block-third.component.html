@@ -1,6 +1,7 @@
 <div class="container">
     <h2>BLOK Z DŁUGĄ NAZWĄ KTÓRA SAMA SIĘ PRZYTNIE. BLOK Z DŁUGĄ NAZWĄ KTÓRA SAMA SIĘ PRZYTNIE.</h2>
-    <p>
+    <p *ngFor="let item of content">{{ item }}</p>
+    <p *ngIf="!content.length">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec ullamcorper erat, sed venenatis odio id
         imperdiet ornare. Nisi duis vehicula ipsum ac accumsan, libero ipsum sem velit, non integer consequat massa
         vestibulum hendrerit at quam. Curabitur vitae sed ut dolor in nulla sem sem, sodales cursus lorem ultrices
