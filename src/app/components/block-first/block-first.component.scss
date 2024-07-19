@@ -1,6 +1,6 @@
 @use'../../../styles.scss' as *;
 
-.flex {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,62 +10,62 @@
         margin-bottom: 4.5rem;
     }
 
-    &__options-container {
+    &__options {
         width: 100%;
 
         div {
             margin-bottom: 1.45rem;
         }
-    }
-}
 
-.custom-radio {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
+        &__custom-radio {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
 
-    &__circle {
-        width: 1.875rem;
-        height: 1.875rem;
-        border-radius: 50%;
-        border: 0.35rem solid $color-font;
-        margin-right: 1.4rem;
-        position: relative;
+            &__circle {
+                width: 1.875rem;
+                height: 1.875rem;
+                border-radius: 50%;
+                border: 0.35rem solid $color-font;
+                margin-right: 1.4rem;
+                position: relative;
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            width: 1.15rem;
-            height: 1.15rem;
-            border-radius: 50%;
-            background-color: $color-font;
-            transition: transform 0.2s ease;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    width: 1.15rem;
+                    height: 1.15rem;
+                    border-radius: 50%;
+                    background-color: $color-font;
+                    transition: transform 0.2s ease;
+                }
+            }
+
+            &__text {
+                font-size: 1.5rem;
+                font-weight: 50;
+                user-select: none;
+                color: $color-font;
+            }
         }
     }
-
-    &__text {
-        font-size: 1.5rem;
-        font-weight: 50;
-        user-select: none;
-        color: $color-font;
-    }
 }
 
-input[type="radio"]:checked+label .custom-radio__circle::before {
+input[type="radio"]:checked+label .container__options__custom-radio__circle::before {
     transform: translate(-50%, -50%) scale(1);
 }
 
-input[type="radio"]:checked+label .custom-radio__text {
+input[type="radio"]:checked+label .container__options__custom-radio__text {
     font-weight: 500;
 }
 
-input[type="radio"]:hover+label .custom-radio__circle::before {
+input[type="radio"]:hover+label .container__options__custom-radio__circle::before {
     transform: translate(-50%, -50%) scale(0.9);
 }
 
-input[type="radio"]:hover+label .custom-radio__text {
+input[type="radio"]:hover+label .container__options__custom-radio__text {
     font-weight: 500;
 }

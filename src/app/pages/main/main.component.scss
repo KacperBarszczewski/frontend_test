@@ -1,12 +1,12 @@
 @use'../../../styles.scss' as *;
 
-.page-container {
+.container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     padding-top: 8.75rem;
 
-    .header-container {
+    &__title {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -19,35 +19,35 @@
             font-size: 3rem;
         }
 
-        .line {
+        &__line {
             border-bottom: $color-font 1px solid;
             width: 15rem;
             margin-top: 1rem;
         }
     }
 
-    .blocks-container {
+    &__blocks {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(2, minmax(0, 1fr));
         gap: 1rem;
         grid-template-areas:
-            "a b"
-            "c c";
+            "first second"
+            "third third";
 
         margin-left: 1rem;
         margin-right: 1rem;
 
-        .a {
-            grid-area: a;
+        &__first {
+            grid-area: first;
         }
 
-        .b {
-            grid-area: b;
+        &__second {
+            grid-area: second;
         }
 
-        .c {
-            grid-area: c;
+        &__third {
+            grid-area: third;
         }
 
 
@@ -56,7 +56,7 @@
             grid-template-rows: repeat(1, minmax(0, 1fr));
 
             grid-template-areas:
-                "a b c";
+                "first second third";
         }
 
         @media (min-width: $breakpoint-lg) {
