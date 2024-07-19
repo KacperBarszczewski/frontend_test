@@ -27,8 +27,44 @@
     }
 
     .blocks-container {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        grid-template-areas:
+            "a b"
+            "c c";
+
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        .a {
+            grid-area: a;
+        }
+
+        .b {
+            grid-area: b;
+        }
+
+        .c {
+            grid-area: c;
+        }
+
+
+        @media (min-width: $breakpoint-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: repeat(1, minmax(0, 1fr));
+
+            grid-template-areas:
+                "a b c";
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            margin-left: 3.75rem;
+            margin-right: 3.75rem;
+            gap: 7.5rem;
+        }
+
     }
 
     app-footer {

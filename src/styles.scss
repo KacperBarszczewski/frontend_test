@@ -23,3 +23,10 @@ $color-hover: #e88301;
 body {
     background-color: $color-background;
 }
+
+html{
+    font-size: xx-small;
+    @media (min-width: $breakpoint-sm) {
+        font-size: unset;
+    }
+}

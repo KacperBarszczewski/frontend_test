@@ -32,33 +32,18 @@ footer {
                 justify-content: center;
                 position: relative;
 
-                @media (min-width: $breakpoint-sm) {
-                    height: 6.125rem;
-                    width: 6.125rem;
-                }
-
                 p {
-                    font-size: 1rem;
+                    font-size: 1.5rem;
                     margin-left: 0.625rem;
                     color: $color-footer-logo;
-
-                    @media (min-width: $breakpoint-sm) {
-                        font-size: 1.5rem;
-                        
-                    }
                 }
 
                 div {
                     border: 1px solid $color-footer-logo;
-                    height: 4.25rem;
-                    width: 4.25rem;
+                    height: 6.125rem;
+                    width: 6.125rem;
                     z-index: 100;
                     position: absolute;
-
-                    @media (min-width: $breakpoint-sm) {
-                        height: 6.125rem;
-                        width: 6.125rem;
-                    }
                 }
 
                 &:hover {
@@ -86,7 +71,7 @@ footer {
             cursor: default;
 
             @media (min-width: $breakpoint-lg) {
-                display: flex;  
+                display: flex;
             }
 
             div {
@@ -116,30 +101,20 @@ footer {
             %button-shared-styles {
                 background-color: transparent;
                 color: $color-font-smoke;
-                width: 10rem;
-                height: 2.25rem;
+                width: 16.75rem;
+                height: 3rem;
                 border: 1px solid $color-footer-logo;
-                font-size: 0.7rem;
+                font-size: 1rem;
                 font-weight: 700;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
 
-                @media (min-width: $breakpoint-sm) {
-                    width: 16.75rem;
-                    height: 3rem;
-                    font-size: 1rem;
-                }
-
                 .material-symbols-outlined {
                     color: $color-font-smoke;
                     margin: 0.5rem;
-                    font-size: 1rem;
-
-                    @media (min-width: $breakpoint-sm) {
-                        font-size: 1.6rem;
-                    }
+                    font-size: 1.6rem;
                 }
 
                 &:hover {
