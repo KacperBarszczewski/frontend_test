@@ -1,7 +1,5 @@
 # FrontendTest
 
-![alt text](image.png)
-
 ## Link
 Link to page: https://mellifluous-mousse-729568.netlify.app/
 
