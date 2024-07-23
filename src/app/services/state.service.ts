@@ -2,12 +2,21 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageService } from './localStorage.service';
 
+export enum OptionType {
+  First = 'first',
+  Second = 'second',
+  Random = 'random'
+}
+
+export type OptionTypeOrNull = OptionType | null;
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class StateService {
 
-  private selectedOptionSource = new BehaviorSubject<string | null>(null);
+  private selectedOptionSource = new BehaviorSubject<OptionTypeOrNull>(null);
   selectedOption$ = this.selectedOptionSource.asObservable();
 
   content: string[] = [];
@@ -20,13 +29,13 @@ export class StateService {
     });
   }
 
-  setSelectedOption(option: string) {
+  setSelectedOption(option: OptionTypeOrNull) {
     this.selectedOptionSource.next(option);
   }
 
   updateContent(action: 'replace' | 'append') {
     const currentContent = this.content;
-    const newContent = this.getContent(this.selectedOptionSource.getValue() ?? '');
+    const newContent = this.getContent(this.selectedOptionSource.getValue() ?? null);
 
     if (newContent === null)
       return;
@@ -40,16 +49,18 @@ export class StateService {
     }
   }
 
-  getContent(option: string): string | null {
-    if (option === 'first') {
-      return this.getSelectContent(0);
-    } else if (option === 'second') {
-      return this.getSelectContent(1);
-    } else if (option === 'random') {
-      return this.getRandomContent();
-    } else {
-      alert('Nie zaznaczono opcji');
-      return null;
+  getContent(option: OptionTypeOrNull): string | null {
+
+    switch (option) {
+      case OptionType.First:
+        return this.getSelectContent(0);
+      case OptionType.Second:
+        return this.getSelectContent(1);
+      case OptionType.Random:
+        return this.getRandomContent();
+      default:
+        alert('Nie zaznaczono opcji');
+        return null;
     }
   }
 
